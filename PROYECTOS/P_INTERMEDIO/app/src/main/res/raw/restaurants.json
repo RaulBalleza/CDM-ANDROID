@@ -1,0 +1,33 @@
+{
+  "restaurants": [
+    {
+      "code": "010101",
+      "name": "don fito",
+      "menu": [
+        {
+          "producto": "Tacos",
+          "precio": "25"
+        },
+        {
+          "producto": "Refresco",
+          "precio": "10"
+        }
+      ]
+    },
+
+    {
+      "code": "020202",
+      "name": "El cuerudo",
+      "menu": [
+        {
+          "producto": "Gordita",
+          "precio": "25"
+        },
+        {
+          "producto": "Cafe",
+          "precio": "10"
+        }
+      ]
+    }
+  ]
+}
