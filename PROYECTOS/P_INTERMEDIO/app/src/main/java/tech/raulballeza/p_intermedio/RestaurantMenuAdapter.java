@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
@@ -19,7 +20,7 @@ public class RestaurantMenuAdapter extends BaseAdapter {
     public boolean[] getmChecked() {
         return mChecked;
     }
-
+    public int[] cantidades;
     private boolean[] mChecked;
     private View result;
 
@@ -27,6 +28,7 @@ public class RestaurantMenuAdapter extends BaseAdapter {
         mData = new ArrayList();
         mData.addAll(map.entrySet());
         mChecked = new boolean[getCount()];
+        cantidades = new int[getCount()];
     }
 
     @Override
@@ -45,8 +47,12 @@ public class RestaurantMenuAdapter extends BaseAdapter {
         return 0;
     }
 
+    public long getItemCantidad(int position) {
+        return cantidades[position];
+    }
+
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
             result = LayoutInflater.from(parent.getContext()).inflate(R.layout.restaurant_menu, parent, false);
         } else {
@@ -59,6 +65,31 @@ public class RestaurantMenuAdapter extends BaseAdapter {
         ((ImageView) result.findViewById(R.id.iv_checked)).setBackgroundResource(R.drawable.ic_baseline_check_box_outline_blank_24);
         ((TextView) result.findViewById(R.id.txt_producto)).setText(item.getKey());
         ((TextView) result.findViewById(R.id.txt_precio)).setText(item.getValue().toString());
+        //((TextView) result.findViewById(R.id.txt_cantidad)).setText("0");
+        final TextView cantidad = ((TextView) result.findViewById(R.id.txt_cantidad));
+        ((Button) result.findViewById((R.id.btn_aumentarCantidad))).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int a = Integer.parseInt(cantidad.getText().toString());
+                a = a+1;
+                cantidades[position] = a;
+                cantidad.setText(Integer.toString(a));
+            }
+        });
+        ((Button) result.findViewById((R.id.btn_disminuirCantidad))).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int a = Integer.parseInt(cantidad.getText().toString());
+                if (a>=0)
+                    if (a<=0)
+                        a=0;
+                   else
+                        a = a-1;
+
+                cantidades[position] = a;
+                cantidad.setText(Integer.toString(a));
+            }
+        });
         CheckBox cBox = (CheckBox) result.findViewById(R.id.checkbox_ordenar);
         cBox.setTag(position);
         cBox.setChecked(mChecked[position]);

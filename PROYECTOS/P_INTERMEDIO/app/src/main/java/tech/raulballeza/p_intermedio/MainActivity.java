@@ -80,11 +80,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 boolean[] checked = adapter.getmChecked();
                 orden = new StringBuilder("Los clientes de la " + txt_mesa.getText() + " han ordenado: \n");
+                Double total = 0d;
                 for (int i = 0; i < checked.length; i++) {
                     if (checked[i]) {
-                        orden.append(adapter.getItem(i).getKey()).append(" ").append(adapter.getItem(i).getValue()).append("\n");
+                        orden.append(adapter.getItemCantidad(i)).append(" "+adapter.getItem(i).getKey()).append(" = $"+adapter.getItem(i).getValue()*adapter.getItemCantidad(i)+",").append("\n");
                     }
+                    total = total + adapter.getItem(i).getValue()*adapter.getItemCantidad(i);
                 }
+                orden.append("Total: $"+total);
                 SmsHelper.sendDebugSms(PREF_USER_MOBILE_PHONE, orden.toString());
                 Toast.makeText(getApplicationContext(), "Enviando SMS", Toast.LENGTH_SHORT).show();
             }
