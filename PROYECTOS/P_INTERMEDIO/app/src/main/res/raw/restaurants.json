@@ -11,6 +11,14 @@
         {
           "producto": "Refresco",
           "precio": "10"
+        },
+        {
+          "producto": "Quesadilla",
+          "precio": "30"
+        },
+        {
+          "producto": "Agua",
+          "precio": "10"
         }
       ]
     },
@@ -26,6 +34,14 @@
         {
           "producto": "Cafe",
           "precio": "10"
+        },
+        {
+          "producto": "Flautas",
+          "precio": "25"
+        },
+        {
+          "producto": "Coca",
+          "precio": "15"
         }
       ]
     }
