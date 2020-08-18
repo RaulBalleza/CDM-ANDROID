@@ -21,6 +21,7 @@ public class MySurfaceView extends SurfaceView {
     private MyThread gameLoopThread;
     private int Estado = 0;
     private int contador = 0;
+    private double contador3 = 0;
     private int contador2 = 0;
     private int barra_color = 0;
 
@@ -73,7 +74,10 @@ public class MySurfaceView extends SurfaceView {
     public void drawSomething(Canvas canvas) {
         contador++;
         System.out.println("contador = " + contador);
-
+        int progress = MainActivity.seekBar.getProgress();
+        contador2 = progress;
+        contador3 = progress + Math.PI;
+        System.out.println("progreso = " + progress);
         int x = getWidth();//OBTENER ANCHO
         int y = getHeight();//OBTENER ALTO
         int l = y / 3;
@@ -81,6 +85,7 @@ public class MySurfaceView extends SurfaceView {
         //paint.setStyle(Paint.Style.FILL);
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(5);
+
 
 
         switch (Estado) {
@@ -119,14 +124,16 @@ public class MySurfaceView extends SurfaceView {
             punto_medio.setY(punto_medio.getY()+contador);
         }*/
         for (int t = 0; t < 360; t += 1) {
-            punto_medio.setX((float) (radius * cos(contador * Math.PI / 180.0f) + x / 2f));
-            punto_medio.setY((float) (radius * sin(contador * Math.PI / 180.0f) + y / 2f));
+            punto_medio.setX((float) (radius * cos(contador3 * Math.PI * Math.PI / 180.0f) + x / 2f));
+            punto_medio.setY((float) (radius * sin(contador3 * Math.PI * Math.PI / 180.0f) + y / 2f));
         }
         //canvas.drawLine((float) (z + (Math.sin(Math.toRadians(i)) * (radius - 8))), (float) ((l * 2 - radius) + (Math.cos(Math.toRadians(i)) * (radius - 8))), z, (l * 2 - radius), paint);
 
         punto1.draw();
         punto2.draw();
         punto3.draw();
+
+        System.out.println( punto2.toString());
 
         paint.setColor(Color.BLACK);
         paint.setPathEffect(new DashPathEffect(new float[]{10f, 20f}, 0f));
@@ -137,6 +144,7 @@ public class MySurfaceView extends SurfaceView {
 
         /*Animacion alrededor del circulo*/
         punto_medio.draw();
+        System.out.println(punto_medio.toString());
         paint.setPathEffect(null);
         paint.setColor(Color.BLUE);
         canvas.drawLine(punto1.getX(), punto1.getY(), punto_medio.getX(), punto_medio.getY(), paint);
@@ -157,16 +165,18 @@ public class MySurfaceView extends SurfaceView {
 
 
         //canvas.drawLine(0, (y / 3f) * 2, x, (y / 3f) * 2, paint);
-        if (punto1.equals(punto_medio)) {
+
+        if (progress >= 11 && progress <=54) {
             barra_color = 0;
             contador2 = 0;
-        } else if (punto2.equals(punto_medio)) {
+        } else if (progress >= 54 && progress <=92) {
             barra_color = 1;
             contador2 = 0;
-        } else if (punto3.equals(punto_medio)) {
+        } else{
             barra_color = 2;
             contador2 = 0;
         }
+
 
         punto_barra1.draw();
         punto_barra2.draw();
@@ -244,6 +254,14 @@ public class MySurfaceView extends SurfaceView {
             path.lineTo(px, py);
             path.close();
             canvas.drawPath(path, paint);
+        }
+
+        @Override
+        public String toString() {
+            return "Punto{" +
+                    "x=" + x +
+                    ", y=" + y +
+                    '}';
         }
 
         public float getX() {

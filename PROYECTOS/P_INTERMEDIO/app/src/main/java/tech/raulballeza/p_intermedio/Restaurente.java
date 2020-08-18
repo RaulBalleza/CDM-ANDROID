@@ -1,23 +1,22 @@
 package tech.raulballeza.p_intermedio;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Restaurente {
-    int code;
+    String code;
     String name;
     Map<String, Double> menu = new HashMap<String, Double>();
-    public Restaurente(int code, String name) {
+    public Restaurente(String code, String name) {
         this.code = code;
         this.name = name;
     }
 
-    public int getCode() {
+    public String getCode() {
         return code;
     }
 
-    public void setCode(int code) {
+    public void setCode(String code) {
         this.code = code;
     }
 

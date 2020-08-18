@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="HOLA - Aplicación con multiples actividades" />
+
+    <TextView
+        android:id="@+id/textview_01"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Ingresa Cadena1 que se pasara al formulario HIJO" />
+
+    <EditText
+        android:id="@+id/et_01"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <TextView
+        android:id="@+id/textview_02"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Ingresa Cadena2 que se pasara al formulario HIJO" />
+
+    <EditText
+        android:id="@+id/et_02"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <EditText
+        android:id="@+id/et_03"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        />
+
+
+    <Button
+        android:text="Boton01_FPrincipal"
+        android:id="@+id/boton01_FPrincipal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <EditText
+        android:id="@+id/et_04"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        />
+
+
+
+</LinearLayout>

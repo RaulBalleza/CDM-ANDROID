@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+
+    <Button
+        android:id="@+id/botonsec"
+        android:text="Boton01_Sec01"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <EditText
+        android:id="@+id/et_01SEC"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+        />
+
+
+
+    <EditText
+        android:id="@+id/et_02SEC"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+        />
+
+
+    <EditText
+        android:id="@+id/et_03SEC"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+        />
+
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CheckBox" />
+
+    <RadioButton
+        android:id="@+id/radioButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RadioButton" />
+
+    <RadioButton
+        android:id="@+id/radioButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RadioButton" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher" />
+
+</LinearLayout>
